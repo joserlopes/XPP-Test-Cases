@@ -1,0 +1,7 @@
+Value: 1
+Type: int
+Printed: record { b = record { c = 1 } } | record { c = 1 }
+
+Value: 3
+Type: int
+Printed: 1 | 2

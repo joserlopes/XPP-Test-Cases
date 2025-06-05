@@ -1,0 +1,9 @@
+let a = { b = { c = 1 } };
+println(a);
+println(a.b);
+a.b.c;;
+
+let a = { b = { c = 1; d = 2}; c = 3 };
+println(a.b.c);
+println(a.b.d);
+a.c;;

@@ -1,0 +1,11 @@
+let a = { b = box(1) };
+a.b := 30;
+*(a.b);;
+
+let a = { b = box({ c = 1 })};
+a.b := { d = 1 };
+*(a.b).d;;
+
+let a = box({ b = 1 });
+a := { b = 2 };
+*a.b;;
