@@ -1,0 +1,9 @@
+type my_type = struct { a: int, b: int };
+(
+let f = fn x: my_type => { x }; f({ a = 1; b = 2 })
+);;
+
+type my_type = struct { a: struct { b: int }, c: int };
+(
+let f = fn x: my_type => { x }; f({ a = { b = 1 }; c = 2 })
+);;

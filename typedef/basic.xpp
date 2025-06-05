@@ -1,0 +1,4 @@
+type my_type = int;
+(
+let f = fn x: my_type => { x }; f(1)
+);;

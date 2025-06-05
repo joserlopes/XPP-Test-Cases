@@ -1,0 +1,5 @@
+Value: record { a = 1; b = 2 }
+Type: record { a: int; b: int }
+
+Value: record { a = record { b = 1 }; c = 2 }
+Type: record { a: record { b: int }; c: int }
