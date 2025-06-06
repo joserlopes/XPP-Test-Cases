@@ -1,0 +1,5 @@
+type my_type2 = my_type1;
+type my_type1 = int;
+(
+let f = fn x: my_type2 => { x }; f(1)
+);;
