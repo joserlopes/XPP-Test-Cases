@@ -1,9 +1,52 @@
-type my_union = union [ first: int, second: string ];
+type my_union = union [ #first: int, #second: string ];
 (
 let f = fn a: my_union => {
     match a {
         | #first(b) -> b
-        | #second(c) -> 123
+        | #second(c) -> 1
     }
 }; f(#second("123"))
+);;
+
+type my_union = union [ #first: int, #second: string ];
+(
+let f = fn a: my_union => {
+    match a {
+        | #first(b) -> b
+        | #second(b) -> 10
+        | #third(c) -> 123
+    }
+}; f(#first(321))
+);;
+
+type my_union = union [ #first: int, #second: string ];
+(
+let f = fn a: my_union => {
+    match a {
+        | #first(b) -> b
+        | #third(c) -> 123
+    }
+}; f(#first(321))
+);;
+
+type my_union = union [ #first: int, #second: string ];
+(
+let f = fn a: my_union => {
+    match a {
+        | #first(b) -> "123"
+        | #second(c) -> c
+    }
+}; f(#second("123"))
+);;
+
+type my_union = union [ #first: union [ #nested: string ], #second: string ];
+(
+let f = fn a: my_union => {
+    match a {
+        | #first(b) -> match b {
+            | #nested(c) -> c
+            }
+        | #second(c) -> c
+    }
+}; f(#first(#nested("321")))
 );;
