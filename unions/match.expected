@@ -11,3 +11,12 @@ Type: string
 
 Value: "321"
 Type: string
+
+Value: 1
+Type: int
+
+Value: 1
+Type: int
+
+Value: 1
+Type: int
