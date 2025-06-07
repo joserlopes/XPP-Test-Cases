@@ -3,3 +3,10 @@ type my_type2 = my_type1;
 (
 let f = fn x: my_type2 => { x }; f(1)
 );;
+
+type my_int = int;
+type my_struct = struct { a: my_int };
+(
+let f = fn a: my_struct => { a.a };
+f({ a = 1 })
+);;
