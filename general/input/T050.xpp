@@ -1,0 +1,3 @@
+let m = box(9);
+let v = !m;
+v + 1;;

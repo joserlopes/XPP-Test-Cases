@@ -1,0 +1,12 @@
+let factorial: int -> list<int> = fn a: int => { a:?(factorial(a - 1)) };
+let num = box(10);
+let factgen = box(factorial(!num));
+let result = box(1);
+while (!num ~= 0) {
+    match (!factgen) {
+        nil -> nil
+        | v::tail -> result := !result * v; factgen := tail
+    };
+    num := !num - 1
+};
+!result;;

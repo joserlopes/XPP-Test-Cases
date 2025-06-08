@@ -1,0 +1,8 @@
+let len: list<int> -> int = fn l: list<int> => {
+    match l {
+        nil -> 0 |
+        x::y -> 1 + len(y)
+    }
+};
+let l0 = 1::2::3::nil;
+len(l0);;

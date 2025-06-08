@@ -1,0 +1,25 @@
+let sequence: int -> list<int> = fn a: int => { a:?(sequence(a - 1)) };
+let summation = fn num: ref<int>, seq: ref<list<int>> => {
+    let result = box(0);
+    while (!num ~= 0) {
+        match (!seq) {
+            nil -> println(0)
+            | v::tail -> result := !result + v; seq := tail; 0
+        };
+        num := !num - 1
+    };
+    !result
+};
+
+let triangular = fn x: int => {
+    let num = box(0);
+    let seqgen = box(nil);
+    while (!num < x) {
+        seqgen := sequence(!num);
+        println(summation(box(!num))(seqgen));
+        num := !num + 1
+    };
+    ()
+};
+
+triangular(10);;

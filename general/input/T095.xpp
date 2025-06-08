@@ -1,0 +1,5 @@
+type Circle = struct { x: int, y: int, r: int };
+let c: Circle = { x = 1; y = 2; r = 3 };
+println(c.x);
+println(c.y);
+c.r;;

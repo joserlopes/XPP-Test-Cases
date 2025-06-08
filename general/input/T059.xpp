@@ -1,0 +1,23 @@
+let mkpair = fn a: int, b: int => {
+    let l = box(a);
+    let r = box(b);
+    fn f: ref<int> -> ref<int> -> int => {
+        f(l)(r)
+    }
+};
+let getfst = fn p: (ref<int> -> ref<int> -> int) -> int => {
+    p(fn a: ref<int>, b: ref<int> => { !a })
+};
+let setfst = fn p: (ref<int> -> ref<int> -> int) -> int, v: int => {
+    p(fn a: ref<int>, b: ref<int> => { a := v })
+};
+let getsnd = fn p: (ref<int> -> ref<int> -> int) -> int => {
+    p(fn a: ref<int>, b: ref<int> => { !b })
+};
+let setsnd = fn p: (ref<int> -> ref<int> -> int) -> int, v: int => {
+    p(fn a: ref<int>, b: ref<int> => { b := v })
+};
+
+let mp = mkpair(2)(3);
+setfst(mp)(getfst(mp) + getsnd(mp));
+getsnd(mp) * (getfst(mp));;

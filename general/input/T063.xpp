@@ -1,0 +1,5 @@
+let l = 1:?2::nil;
+match l {
+    nil -> println(nil) |
+    x::y -> println(x); println(y)
+};;
