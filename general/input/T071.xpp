@@ -1,0 +1,11 @@
+let sprint: int -> list<int> = fn x: int => {
+    if (x == 0) {
+        1::2::3::nil
+    } else {
+        match sprint(x - 1) {
+            nil -> println(nil) |
+            x::y -> println(x); println(y)
+        }
+    }
+};
+sprint(1);;

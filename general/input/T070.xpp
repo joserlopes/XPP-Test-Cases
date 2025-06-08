@@ -1,0 +1,12 @@
+let sprint: int -> bool = fn x: int => {
+    if (x == 0) {
+        true
+    } else {
+        if (sprint(x - 1)) {
+            println(true)
+        } else {
+            println(false)       
+        }
+    }
+};
+sprint(1);;

@@ -1,0 +1,2 @@
+struct { y: int, z: int }
+struct { y: 1, z: 2 }

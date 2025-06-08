@@ -1,0 +1,7 @@
+let num = box(10);
+let result = box("");
+while (!num ~= 0) {
+    result := !result + !num;
+    num := !num - 1
+};
+!result;;

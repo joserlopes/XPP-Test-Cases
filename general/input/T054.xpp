@@ -1,0 +1,7 @@
+let c = 0;
+let L = 1000;
+let m = box(c);
+while (!m > 0) {
+    m := !m - 1
+};
+!m;;

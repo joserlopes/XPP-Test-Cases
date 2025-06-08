@@ -1,0 +1,8 @@
+let twice = fn f: int -> int => {
+    fn x: int => { f(f(x)) }
+};
+let inc = fn x: int => {
+    x + 1
+};
+let t2 = twice(inc);
+t2(5);;

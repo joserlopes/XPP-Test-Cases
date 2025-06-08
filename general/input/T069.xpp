@@ -1,0 +1,12 @@
+let recsum: int -> int = fn x: int => {
+    if (x == 0) {
+        if (x ~= 0) {
+           recsum(x)
+        } else {
+            0
+        }
+    } else {
+        x + recsum(x - 1)
+    }
+};
+recsum(10);;

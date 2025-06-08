@@ -1,0 +1,7 @@
+let add = fn x: int, y: int => {
+    x + y
+};
+let mul = fn x: int, y: int => {
+    x * y
+};
+mul(add(2)(3))(add(4)(1));;
