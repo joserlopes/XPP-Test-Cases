@@ -28,7 +28,6 @@ let x = 1;
 let y = (x > 2);
 -(2*x>5/2 && y);;
 
-
 let x = 1;
 let y = (x > 2);
 ~(2*x>5/2 && y);;
@@ -125,7 +124,6 @@ let fact:int->int = (
     });
 fact (5);;
 
-
 let reduce: (int->int->int)->int->int->int = 
 fn g:int->int->int, b:int, k:int => {
     if (k == 0) { b }
@@ -136,7 +134,6 @@ fn g:int->int->int, b:int, k:int => {
 let fact = reduce (fn n:int, p:int => { n*p }) (1) ;
 fact (10)
 ;;
-
 
 let reduce: (int->int->int)->int->int->int = 
 fn g:int->int->int, b:int, k:int  => {

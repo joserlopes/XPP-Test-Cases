@@ -1,6 +1,6 @@
 type int2op = (int -> int -> int) ;
 type redtype = int2op -> int -> int -> int;
-(let reduce: redtype = 
+let reduce: redtype = 
 fn g:int2op, b:int, k:int  => {
     if (k == 0) { b }
     else {
@@ -8,32 +8,26 @@ fn g:int2op, b:int, k:int  => {
       }
   };
 let tri = reduce (fn n:int, p:int => { println (n+p) }) (1) ;
-tri (100)
-);;
+tri (100);;
 
 let k = -1;
 let om: (int -> int)->int = fn f:int->int => { f (k)};
 om (fn k:int => {k*k})
 ;;
 
-
 /* simple imperative programs */
 let c = 0;
 let L = 1000;
 let m = box(L);
 let S = box(c);
-(
 while (*m>0) {
     m := *m - 1;
     S := *S + *m
 };
-*S
-)
-;;
+*S;;
 
 /* higher-order store */
 type i2i = int->int;
-(
 let sigfpe:ref<int->int> = box ( fn x:int => {x} );
 let setfpe = fn h:int->int => { sigfpe := h };
 let div = fn n:int,m:int => {
@@ -41,13 +35,11 @@ let div = fn n:int,m:int => {
         else { n / m}
 };
 setfpe (fn v:int => { -1 });
-div (2) (0)
-);;
+div (2) (0);;
 
 /* higher-order store */
 type i2i = int->int;
 type refi2i = ref<i2i>;
-(
 let sigfpe: refi2i = box ( fn x:int => {x} );
 let setfpe = fn h:i2i => { sigfpe := h };
 let div = fn n:int,m:int => {
@@ -55,8 +47,7 @@ let div = fn n:int,m:int => {
         else { n / m}
 };
 setfpe (fn v:int => { -1 });
-div (2) (0)
-);;
+div (2) (0);;
 
 
 /* landin's knot, encoding recursion through state */
@@ -69,21 +60,18 @@ fact (6)
 ;;
 
 type money = int;
-(let x:money = 2;
-x+1
-);;
+let x:money = 2;
+x+1;;
 
 /* landin's knot, encoding recursion through state */
 
 type knott = ref<int->int>;
-(
 let knot:knott = box (fn x:int => {x});
 let fact = fn n:int => {
       if (n==0) { 1}
         else { n * ((*knot)( n - 1 ))}};
 knot := fact;
-fact (6)
-);;
+fact (6);;
 
 /* some functions to encode mutable pairs */
 /* now w / type defs */
@@ -91,7 +79,6 @@ fact (6)
 type Iaccessor = ref<int> -> ref<int> -> int;
 type Igettype = (Iaccessor -> int)->int;
 type Isettype = (Iaccessor -> int) -> int -> int;
-(
 let mkpair =
     fn a:int,b:int => { 
         let l = box(a);
@@ -118,7 +105,7 @@ let x = mkpair (1) (2);
     setfst (x) (10);
     setsnd (x) (20);
     (getfst (x)) + (getsnd (x))
-);;
+;;
 
 let inc = fn r:ref<int>,z:int->int => { r := z(*r + 1); *r};
 let age = box (1);
