@@ -1,14 +1,9 @@
-Value: 1
-Type: int
+Value: ref(struct { #a = 10 })
+Type: ref<struct { #a: int }
 
-Value: 1
-Type: int
+throws TypeCheckError
 
-Value: 1
-Type: int
+throws TypeCheckError
 
-Value: 30
-Type: int
-
-Value: 3
-Type: int
+Value: ref(struct { #a = 10, #b = 30 })
+Type: ref<struct { #a: int, #b: int }
