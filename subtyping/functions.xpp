@@ -1,0 +1,24 @@
+type struct1 = struct { #a: int, #b: bool };
+type struct2 = struct { #c: int };
+type struct3 = struct { #a: int };
+let f: struct1 -> struct2 = fn a: struct3 => {
+    { #c = a.#a + 2, #d = 10 }
+};
+f({ #a = 10, #b = true });;
+
+type struct1 = struct { #a: int, #b: bool };
+type struct2 = struct { #c: int, #d: int, #e: bool };
+type struct3 = struct { #a: int };
+let f: struct1 -> struct2 = fn a: struct3 => {
+    { #c = a.#a + 2, #d = 10 }
+};
+f({ #a = 10, #b = true });;
+
+type struct1 = struct { #a: int, #b: bool };
+type struct2 = struct { #c: int };
+let f = fn a: struct1 -> struct2 => {
+    a({ #a = 1, #b = true })
+};
+f(fn a: struct { #a: int } => { 
+    { #c = a.#a + 1, #d = 10 }
+});;

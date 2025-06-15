@@ -1,0 +1,7 @@
+Type: struct { #c: int }
+Value: struct { #c = 12; #d = 10 }
+
+throws TypeCheckError
+
+Type: struct { #c: int }
+Value: struct { #c = 2; #d = 10 }
