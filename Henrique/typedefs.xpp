@@ -27,7 +27,7 @@ f({#val = 5});;
 type a = int; type b = a;
 let f = fn x: union {#val: b} => {
     match x {
-        #val(v) -> -v
+        | #val(v) -> -v
     }
 };
 f(#val(5));;
